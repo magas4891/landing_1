@@ -16,6 +16,9 @@ $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
+$fs-sm: 12px;
+$fs-md: 15px;
+
 $padding-vertical-xs: $base * 5;
 $padding-vertical-sm: $base * 15;
 $padding-vertical: $base * 30;
@@ -23,16 +26,15 @@ $padding-vertical: $base * 30;
 $color-divider: #d8e3fe;
 
 $transition: .2s;
+
+$color-primary: #697ca6;
+$color-secondary: #6188ff;
 // === / VARIABLES ===
 
 // === COMMON ===
-body {
-    @include roboto;
-}
+body { @include roboto; }
 
-.section-outer {
-    border-bottom: 1px solid $color-divider;
-}
+.section-outer { border-bottom: 1px solid $color-divider; }
 
 .section-inner {
     max-width: 900px;
@@ -40,10 +42,31 @@ body {
     padding-top: $padding-vertical;
     padding-bottom: $padding-vertical;
 
-    &--wide {
-        max-width: 1200px;
+    &--wide { max-width: 1200px; }
+}
+
+.btn {
+    @include quicksand;
+
+    padding: $base*3 $base*4;
+    margin: 0;
+    font-weight: $fw-bold;
+    font-size: $fs-sm;
+    background-color: none;
+    border: 0;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: $transition;
+
+    &--primary {
+        background-color: #d2e1ff;
+        color: #3a79ff;
+
+        &:hover {background-color: darken(#d2e1ff, 5%)}
     }
 }
+
+.btn-wrapper { margin-left: $base * 11;}
 // === / COMMON ===
 
 // === HEADER ===
@@ -66,9 +89,7 @@ body {
     border-radius: 100%;
 }
 
-.nav {
-    margin-left: $base * 18;
-}
+.nav { margin-left: $base * 18; }
 
 .nav-wrapper {
     display: flex;
@@ -77,26 +98,47 @@ body {
     list-style: none;
 
     &__item {
-        & + & {
-            margin-left: $base * 10;
-        }
+        & + & { margin-left: $base * 10; }
 
         &-link {
             @include quicksand;
 
-            font-size: 12px;
-            color: #697ca6;
+            font-size: $fs-sm;
+            color: $color-primary;
             text-decoration: none;
             font-weight: $fw-medium;
             transition: $transition;
 
-            &:hover {
-                color: #5e81fe;
-            }
+            &:hover { color: $color-secondary; }
 
             &--active {
                 font-weight: $fw-bold;
-                color: #5e81fe;
+                color: $color-secondary;
+            }
+        }
+    }
+}
+
+.socials { margin-left: auto; }
+
+.socials-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        & + & { margin-left: $base * 10; }
+
+        &-link {
+            path {
+                fill: $color-primary;
+                transition: $transition;
+            }
+
+            &:hover {
+                path { fill: $color-secondary; }
             }
         }
     }
@@ -131,6 +173,7 @@ body {
 // === STATS ===
 .section-stats {
     background-color: #e9efff;
+
     .section-inner {
         padding-top: $padding-vertical-sm;
         padding-bottom: $padding-vertical-sm;
@@ -169,9 +212,20 @@ body {
 // === FOOTER ===
 .section-footer {
     border-bottom: 0;
+
     .section-inner {
         padding-top: $padding-vertical-sm;
         padding-bottom: $padding-vertical-sm;
     }
+}
+
+.copyright {
+    @include quicksand;
+
+    margin-top: $base * 7;
+    margin-left: $base * 24;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: #aeb8d0;
 }
 // === / FOOTER ===
