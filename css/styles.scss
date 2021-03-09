@@ -53,12 +53,13 @@ body {
 .btn {
     @include quicksand;
 
+    box-sizing: border-box;
     padding: $base*3 $base*4;
     margin: 0;
     font-weight: $fw-bold;
     font-size: $fs-sm;
-    background-color: none;
-    border: 0;
+    background: none;
+    border: 1px solid transparent;
     border-radius: 2px;
     text-decoration: none;
     transition: $transition;
@@ -67,7 +68,25 @@ body {
         background-color: #d2e1ff;
         color: #3a79ff;
 
-        &:hover {background-color: darken(#d2e1ff, 5%)}
+        &:hover { background-color: darken(#d2e1ff, 5%) }
+    }
+
+    &--secondary {
+        background-color: #4c85ff;
+        color: #ffffff;
+
+        &:hover { background-color: darken(#4c85ff, 5%) }
+    }
+
+    &--no-bg {
+        color: #adb4d2;
+        border: 1px solid #d1d1e4;
+
+        &:hover {
+            color: darken(#adb4d2, 10%);
+            border: 1px solid darken(#d1d1e4, 10%)
+        }
+
     }
 }
 
@@ -90,7 +109,8 @@ h6 {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     margin-bottom: $base * 7;
     font-size: 48px;
 }
@@ -276,8 +296,20 @@ h5 {
 // === CUSTOMERS ===
 .section-customers {
     .section-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding-top: $padding-vertical-sm;
         padding-bottom: $padding-vertical-sm;
+
+        a {
+            transition: $transition;
+            opacity: .3;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 }
 // === / CUSTOMERS ===
@@ -285,6 +317,23 @@ h5 {
 // === PLAN-AND-MANAGE ===
 .section-plan-and-manage {
     background-color: #f5f8ff;
+
+    &__content {
+        width: 50%;
+
+        h2 {
+            font-weight: $fw-light;
+        }
+
+        span {
+            font-weight: $fw-medium;
+        }
+
+        .text {
+            margin-bottom: $base * 12;
+            line-height: 2;
+        }
+    }
 }
 // === / PLAN-AND-MANAGE ===
 
