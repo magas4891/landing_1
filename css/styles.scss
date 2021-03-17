@@ -78,6 +78,13 @@ body {
         &:hover { background-color: darken(#4c85ff, 5%) }
     }
 
+    &--danger {
+        background-color: #ffd7d7;
+        color: #d43f3f;
+
+        &:hover { background-color: darken(#ffd7d7, 5%) }
+    }
+
     &--no-bg {
         color: #adb4d2;
         border: 1px solid #d1d1e4;
@@ -114,9 +121,15 @@ h3 {
     font-size: 48px;
 }
 
-h3 { font-size: 36px; }
+h3 {
+    margin-bottom: $base * 7;
+    font-size: 36px;
+}
 
-h4 { font-size: 24px }
+h4 {
+    margin-bottom: $base * 20;
+    font-size: 24px
+}
 
 h5 {
     @include roboto;
@@ -354,7 +367,86 @@ h5 {
 // === / PLAN-AND-MANAGE ===
 
 // === FEATURES ===
-.section-features {}
+.section-features {
+    background: url(../img/bg-features-clouds.svg) no-repeat 50% 50%;
+
+    h4 {
+        font-weight: $fw-medium;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.feature-list {
+    display: flex;
+    margin: 0 0 $base*25;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    &__item {
+        position: relative;
+        flex-basis: 25%;
+
+        &:not(:first-child) {
+            margin-left: $base * 10;
+        }
+
+        &:not(:first-child):before {
+            position: absolute;
+            top: 120px;
+            left: -34px;
+            width: 28px;
+            height: 1px;
+            content: '';
+            background-color: #dae4fe;
+        }
+
+        &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $base * 17;
+            height: $base * 17;
+            margin: 0 auto $base*8;
+            border-radius: 100%;
+            border-color: #f1f5ff;
+        }
+        &-title {
+            font-weight: $fw-bold;
+            font-size: $fs-md;
+            color: #4074f8;
+            margin-bottom: $base * 7;
+        }
+        &-text {
+            line-height: 2;
+        }
+    }
+}
+
+.or-block {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 $base * 4;
+    font-weight: $fw-medium;
+    font-size: $fs-sm;
+
+    &::before,
+    &::after {
+        display: block;
+        width: $base * 4;
+        height: 1px;
+        content: '';
+        background-color: #dae4fe;
+    }
+
+    &::before { margin-right: $base * 4; }
+    &::after { margin-left: $base * 4; }
+}
 // === / FEATURES ===
 
 // === STATS ===

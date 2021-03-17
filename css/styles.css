@@ -36,6 +36,11 @@ body {
     color: #ffffff; }
     .btn--secondary:hover {
       background-color: #3374ff; }
+  .btn--danger {
+    background-color: #ffd7d7;
+    color: #d43f3f; }
+    .btn--danger:hover {
+      background-color: #ffbebe; }
   .btn--no-bg {
     color: #adb4d2;
     border: 1px solid #d1d1e4; }
@@ -66,9 +71,11 @@ h3 {
   font-size: 48px; }
 
 h3 {
+  margin-bottom: 28px;
   font-size: 36px; }
 
 h4 {
+  margin-bottom: 80px;
   font-size: 24px; }
 
 h5 {
@@ -232,6 +239,68 @@ h5 {
       line-height: 2; }
     .section-plan-and-manage__content .btn-group svg {
       margin-left: 4px; }
+
+.section-features {
+  background: url(../img/bg-features-clouds.svg) no-repeat 50% 50%; }
+  .section-features h4 {
+    font-weight: 500; }
+  .section-features .btns {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto; }
+
+.feature-list {
+  display: flex;
+  margin: 0 0 100px;
+  padding: 0;
+  list-style: none;
+  text-align: center; }
+  .feature-list__item {
+    position: relative;
+    flex-basis: 25%; }
+    .feature-list__item:not(:first-child) {
+      margin-left: 40px; }
+    .feature-list__item:not(:first-child):before {
+      position: absolute;
+      top: 120px;
+      left: -34px;
+      width: 28px;
+      height: 1px;
+      content: '';
+      background-color: #dae4fe; }
+    .feature-list__item-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 32px;
+      border-radius: 100%;
+      border-color: #f1f5ff; }
+    .feature-list__item-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: #4074f8;
+      margin-bottom: 28px; }
+    .feature-list__item-text {
+      line-height: 2; }
+
+.or-block {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 16px;
+  font-weight: 500;
+  font-size: 12px; }
+  .or-block::before, .or-block::after {
+    display: block;
+    width: 16px;
+    height: 1px;
+    content: '';
+    background-color: #dae4fe; }
+  .or-block::before {
+    margin-right: 16px; }
+  .or-block::after {
+    margin-left: 16px; }
 
 .section-stats {
   background-color: #e9efff; }
