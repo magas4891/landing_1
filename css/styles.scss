@@ -19,6 +19,8 @@ $fw-bold: 700;
 
 $fs-sm: 12px;
 $fs-md: 15px;
+$fs-lg: 18px;
+$fs-xl: 48px;
 
 $padding-vertical-xs: $base * 5;
 $padding-vertical-sm: $base * 15;
@@ -392,9 +394,7 @@ h5 {
         position: relative;
         flex-basis: 25%;
 
-        &:not(:first-child) {
-            margin-left: $base * 10;
-        }
+        &:not(:first-child) { margin-left: $base * 10; }
 
         &:not(:first-child):before {
             position: absolute;
@@ -416,15 +416,15 @@ h5 {
             border-radius: 100%;
             border-color: #f1f5ff;
         }
+
         &-title {
             font-weight: $fw-bold;
             font-size: $fs-md;
             color: #4074f8;
             margin-bottom: $base * 7;
         }
-        &-text {
-            line-height: 2;
-        }
+
+        &-text { line-height: 2; }
     }
 }
 
@@ -451,12 +451,47 @@ h5 {
 
 // === STATS ===
 .section-stats {
+    display: flex;
     background-color: #e9efff;
 
-    .section-inner {
-        padding-top: $padding-vertical-sm;
-        padding-bottom: $padding-vertical-sm;
+    &__left,
+    &__right {
+        display: flex;
+        flex-basis: 40%;
+        flex-direction: column;
+        padding: $base*16 $base*22;
     }
+
+    &__left {
+        align-items: flex-end;
+        background-color: #5e80ff;
+        text-align: right;
+        color: #fff;
+    }
+
+    &__right {
+        background-color: #d8e3fe;
+        color: #5e80ff;
+    }
+
+    &__icon { margin-bottom: $base * 6; }
+
+    &__number {
+        @include quicksand();
+
+        margin-bottom: $base * 7;
+        font-size: $fs-xl;
+    }
+
+    &__text {
+        @include quicksand();
+
+        width: 40%;
+        font-size: $fs-lg;
+        font-weight: $fw-medium;
+        line-height: 1.5;
+    }
+
 }
 // === / STATS ===
 
