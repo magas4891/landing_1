@@ -61,11 +61,13 @@ body {
 .btn {
     @include quicksand;
 
+    display: inline-block;
     box-sizing: border-box;
     padding: $base*3 $base*4;
     margin: 0;
     font-weight: $fw-bold;
     font-size: $fs-sm;
+    white-space: nowrap;
     background: none;
     border: 1px solid transparent;
     border-radius: 2px;
@@ -84,6 +86,13 @@ body {
         color: #ffffff;
 
         &:hover { background-color: darken(#4c85ff, 5%) }
+    }
+
+    &--grayscale {
+        background-color: #e8ecf4;
+        color: #7382a3;
+
+        &:hover { background-color: darken(#e8ecf4, 5%) }
     }
 
     &--danger {
@@ -684,7 +693,71 @@ h5 {
 
 // === FAQ ===
 .section-faq {
+    h4 {
+        font-weight: $fw-medium;
+    }
+}
 
+.faq-accordion {
+    @include list-null;
+
+    &__item {
+        $parent: &;
+
+        border-bottom: 1px solid #d8e3fe;
+
+        &-active {
+            .arrow {
+                stroke: #495274
+            }
+
+            #{$parent}-trigger {
+                color: #495274;
+                font-weight: $fw-bold;
+
+                &-icon {
+                    transform: rotate(0);
+                }
+            }
+
+            #{$parent}-content {
+                display: flex;
+            }
+        }
+
+        &-trigger {
+            display: flex;
+            cursor: pointer;
+            padding: $base * 4;
+
+            &-icon {
+                width: $base * 4;
+                text-align: center;
+                margin-right: $base * 4;
+                transform: rotate(180deg);
+
+                .arrow {
+                    stroke: #8e96b7;
+                }
+            }
+            &-text {
+                font-style: $fs-md;
+            }
+        }
+        &-content {
+            display: none;
+            padding: 0 $base*4 $base*4 $base*12;
+
+            &-text {
+                flex-grow: 1;
+                font-style: $fs-md;
+                line-height: 2;
+            }
+            &-button {
+                margin-left: $base * 15;
+            }
+        }
+    }
 }
 // === / FAQ ===
 
